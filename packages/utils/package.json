@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+    "./permissions": { "types": "./dist/permissions.d.ts", "default": "./dist/permissions.js" },
+    "./seed": { "types": "./dist/seed.d.ts", "default": "./dist/seed.js" }
+  },
   "files": ["dist"],
   "scripts": {
     "build": "tsc --declaration --outDir dist",

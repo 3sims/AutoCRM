@@ -6,7 +6,7 @@
     "dev": "nest start --watch",
     "build": "nest build",
     "build:serverless": "nest build --config nest-cli-serverless.json",
-    "vercel-build": "cd ../.. && npm run build --workspace=packages/events --workspace=packages/shared-types --workspace=packages/utils",
+    "vercel-build": "cd ../../packages/shared-types && npm run build && cd ../../packages/events && npm run build && cd ../../packages/utils && npm run build && cd ../../apps/api && npx nest build --config nest-cli-serverless.json",
     "start": "node dist/main",
     "lint": "eslint src --ext .ts",
     "test": "jest",
