@@ -67,7 +67,7 @@ const PERMISSIONS = {
 };
 
 // can(user, action, record?) → boolean
-const can = (user, action, record = null) => {
+const can = (user: any, action: string, record: any = null) => {
   if (!user) return false;
   const perm = PERMISSIONS[action];
   if (!perm) return false;
