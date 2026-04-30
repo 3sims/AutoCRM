@@ -69,7 +69,7 @@ const PERMISSIONS = {
 // can(user, action, record?) → boolean
 const can = (user: any, action: string, record: any = null) => {
   if (!user) return false;
-  const perm = PERMISSIONS[action];
+  const perm = (PERMISSIONS as Record<string, any>)[action];
   if (!perm) return false;
   if (!perm.roles.includes(user.role)) return false;
   // ownerOnly: if not admin/manager, must own the record
