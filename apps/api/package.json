@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "nest start --watch",
     "build": "nest build",
+    "build:serverless": "nest build --config nest-cli-serverless.json",
+    "vercel-build": "npm run build:serverless",
     "start": "node dist/main",
     "lint": "eslint src --ext .ts",
     "test": "jest",
