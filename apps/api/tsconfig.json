@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2020",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "paths": {
+      "@autocrm/shared-types": ["../../packages/shared-types/src/index.ts"],
+      "@autocrm/events": ["../../packages/events/src/index.ts"],
+      "@autocrm/utils": ["../../packages/utils/src/index.ts"],
+      "@autocrm/utils/permissions": ["../../packages/utils/src/permissions.ts"],
+      "@autocrm/utils/seed": ["../../packages/utils/src/seed.ts"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

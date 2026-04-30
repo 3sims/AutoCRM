@@ -1,0 +1,43 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug API (NestJS)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["nest", "start", "--debug", "--watch"],
+      "cwd": "${workspaceFolder}/apps/api",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env.local",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/apps/api/dist/**/*.js"]
+    },
+    {
+      "name": "Debug Web (Next.js)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev"],
+      "cwd": "${workspaceFolder}/apps/web",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env.local"
+    },
+    {
+      "name": "Run Seed Script",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["ts-node", "-r", "tsconfig-paths/register", "src/scripts/seed.ts"],
+      "cwd": "${workspaceFolder}/apps/api",
+      "envFile": "${workspaceFolder}/.env.local",
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack",
+      "configurations": ["Debug API (NestJS)", "Debug Web (Next.js)"]
+    }
+  ]
+}

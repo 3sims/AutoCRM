@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+.next/
+out/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Uploads (local dev)
+uploads/
+*.webp
+*.jpg
+*.png
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+
+# TypeORM
+ormconfig.json
+
+# Test coverage
+coverage/
+
+# TypeScript incremental compilation
+*.tsbuildinfo

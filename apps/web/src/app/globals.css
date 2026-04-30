@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-surface: #0b1523;
+  --color-surface-card: #1a2235;
+  --color-surface-dark: #07101d;
+  --color-surface-input: #0d1624;
+  --color-border: #1e2d45;
+  --color-border-strong: #2a3f5a;
+  --color-brand: #3B82F6;
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-surface-dark);
+  color: var(--color-text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--color-surface-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-border-strong); }
+
+/* Select options dark theme */
+select option { background: var(--color-surface-input); color: var(--color-text-primary); }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-in { animation: slideIn 0.3s ease; }
+.animate-fade-in { animation: fadeIn 0.2s ease; }
