@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { NestFactory } from '@nestjs/core'
 import { ValidationPipe } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
@@ -9,7 +10,7 @@ import { AppModule } from './app.module'
 let cachedApp: Express | null = null
 
 async function bootstrap(): Promise<Express> {
-  const nest = await NestFactory.create(AppModule, { logger: false })
+  const nest = await NestFactory.create(AppModule, { logger: ['error', 'warn'] })
   const config = nest.get(ConfigService)
 
   nest.use(helmet())
@@ -29,6 +30,12 @@ async function bootstrap(): Promise<Express> {
 }
 
 export default async (req: any, res: any) => {
-  if (!cachedApp) cachedApp = await bootstrap()
-  cachedApp(req, res)
+  try {
+    if (!cachedApp) cachedApp = await bootstrap()
+    cachedApp(req, res)
+  } catch (err: any) {
+    console.error('[serverless] bootstrap failed:', err?.message, err?.stack)
+    res.statusCode = 500
+    res.end(JSON.stringify({ error: 'Server initialization failed', detail: err?.message }))
+  }
 }
