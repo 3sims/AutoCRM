@@ -2,8 +2,6 @@ import 'reflect-metadata'
 import { NestFactory } from '@nestjs/core'
 import { ValidationPipe } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import helmet from 'helmet'
-import * as compression from 'compression'
 import type { Express } from 'express'
 import { AppModule } from './app.module'
 
@@ -13,8 +11,6 @@ async function bootstrap(): Promise<Express> {
   const nest = await NestFactory.create(AppModule, { logger: ['error', 'warn'] })
   const config = nest.get(ConfigService)
 
-  nest.use(helmet())
-  nest.use(compression())
   nest.enableCors({ origin: config.get('CORS_ORIGIN', '*'), credentials: true })
   nest.useGlobalPipes(
     new ValidationPipe({
