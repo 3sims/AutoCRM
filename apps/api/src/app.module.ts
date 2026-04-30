@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common'
+import { AppController } from './app.controller'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ThrottlerModule } from '@nestjs/throttler'
@@ -21,6 +22,7 @@ import { BillingModule }       from './modules/billing/billing.module'
 import { AuditModule }         from './modules/audit/audit.module'
 
 @Module({
+  controllers: [AppController],
   imports: [
     // ── Config ──────────────────────────────────────────────────────────────
     ConfigModule.forRoot({
