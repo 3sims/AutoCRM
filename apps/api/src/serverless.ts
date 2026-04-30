@@ -19,7 +19,7 @@ async function bootstrap(): Promise<Express> {
       transformOptions: { enableImplicitConversion: true },
     })
   )
-  nest.setGlobalPrefix('api')
+  // Pas de prefix — Vercel rewrites gère le routing
   await nest.init()
 
   return nest.getHttpAdapter().getInstance() as Express
